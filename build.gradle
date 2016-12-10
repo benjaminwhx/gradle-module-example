@@ -1,0 +1,102 @@
+allprojects {
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+}
+
+subprojects {
+    group = 'com.jd.bt'
+    version = '1.0-SNAPSHOT'
+
+    apply plugin: 'java'
+
+    // jvm版本要求
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    // java编译的时候缺省状态下会因为中文字符而失败
+    [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+
+    // jar包的manifest文件
+    jar {
+        manifest {
+            attributes 'Packages': 'com.jd.bt',
+                    'Implementation-Title': "$project.name",
+                    'Implementation-Version': "$project.version",
+                    'Implementation-Vendor': "Wu hai xu",
+                    "Built-By": "Wu hai xu",
+                    "Built-Date": new Date().getDateTimeString(),
+                    'Built-With': "gradle-$project.gradle.gradleVersion, groovy-$GroovySystem.version",
+                    'Created-By': 'Java ' + System.getProperty('java.version') + ' (' + System.getProperty('java.vendor') + ')'
+        }
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url = 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        mavenCentral()
+    }
+
+    // 定义版本号
+    ext {
+        springVersion = '4.1.6.RELEASE'
+        junitVersion = '4.12'
+        sfl4jVersion = '1.7.5'
+        ehcacheVersion = '2.6.11'
+        hibernateVersion = '4.3.5.Final'
+    }
+
+    /**
+     * 自定义provided
+     */
+    configurations {
+        provided
+    }
+    sourceSets {
+        main.compileClasspath += configurations.provided
+        test.compileClasspath += configurations.provided
+        test.runtimeClasspath += configurations.provided
+    }
+
+    dependencies {
+        compile('org.gradle:gradle-core:3.1') {
+            transitive = false
+        }
+        compile(
+                // spring
+                "org.springframework:spring-core:$springVersion",
+                "org.springframework:spring-aop:$springVersion",
+                "org.springframework:spring-test:$springVersion",
+                "org.springframework:spring-orm:$springVersion",
+                "org.springframework:spring-jdbc:$springVersion",
+                "org.springframework:spring-web:$springVersion",
+                "org.springframework:spring-webmvc:$springVersion",
+                // log
+                "org.slf4j:slf4j-log4j12:$sfl4jVersion",
+                "commons-lang:commons-lang:2.6",
+                "commons-collections:commons-collections:3.1",
+                "commons-codec:commons-codec:1.10",
+                // ehcache
+                "net.sf.ehcache:ehcache-core:$ehcacheVersion",
+                // hibernate
+                "org.hibernate:hibernate-entitymanager:$hibernateVersion",
+                "org.hibernate:hibernate-ehcache:$hibernateVersion",
+                "commons-beanutils:commons-beanutils:1.9.3",
+                "javax.servlet:jstl:1.2"
+        )
+        testCompile(
+                "junit:junit:$junitVersion"
+        )
+        provided (
+                "javax.servlet:servlet-api:3.+",
+                "javax.servlet.jsp:jsp-api:2.+",
+        )
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}

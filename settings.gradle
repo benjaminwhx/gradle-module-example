@@ -1,0 +1,13 @@
+rootProject.name = 'gradle-module-example'
+
+/**
+ * 加入子模块
+ */
+include 'web', 'service', 'dao', 'base'
+
+/**
+ * 自定义各模块下面的配置文件名。如dao/dao.gradle
+ */
+rootProject.children.each {
+    it.buildFileName = it.name + '.gradle'
+}

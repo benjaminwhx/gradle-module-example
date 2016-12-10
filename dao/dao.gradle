@@ -1,0 +1,15 @@
+ext {
+    mysqlVersion = '5.1.34'
+    poolVersion = '1.4'
+}
+
+dependencies {
+    compile(
+            project(':base'),
+            // mysql connector
+            "mysql:mysql-connector-java:$mysqlVersion",
+            // pool
+            "commons-dbcp:commons-dbcp:$poolVersion",
+            "commons-pool:commons-pool:$poolVersion"
+    )
+}
