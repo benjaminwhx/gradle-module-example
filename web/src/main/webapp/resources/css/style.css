@@ -948,7 +948,7 @@ p.copyright a:hover{
         font-size: 14px;
         line-height:1.2em;
     }
-    .exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small,{
+    .exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small{
         font-size:15px;
     }
     .experience {
@@ -1199,7 +1199,7 @@ p.copyright a:hover{
         font-size: 13px;
         line-height:1.5em;
     }
-    .exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small,{
+    .exp-devide-grid-right small,.exp-devide-grid-left small,.exp-devide-grid-rightb small{
         font-size:14px;
     }
 }

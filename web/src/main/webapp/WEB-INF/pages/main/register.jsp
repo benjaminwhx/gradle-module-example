@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="/WEB-INF/pages/common/taglibs.jsp" %>
+<%@ include file="../common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
+    <%@ include file="../common/meta.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>会员注册_月升酒店用品</title>
-    <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
-    <%@ include file="/WEB-INF/pages/common/shopping-resources.jsp" %>
+    <%@ include file="../common/bootstrap-resources.jsp" %>
+    <%@ include file="../common/shopping-resources.jsp" %>
 </head>
 <body>
 <jsp:include page="header.jsp"/>

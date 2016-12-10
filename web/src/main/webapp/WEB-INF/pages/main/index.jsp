@@ -6,15 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="/WEB-INF/pages/common/taglibs.jsp" %>
+<%@ include file="../common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <%@ include file="/WEB-INF/pages/common/meta.jsp" %>
+    <%@ include file="../common/meta.jsp" %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>月升酒店用品</title>
-    <%@ include file="/WEB-INF/pages/common/bootstrap-resources.jsp" %>
-    <%@ include file="/WEB-INF/pages/common/travel-resources.jsp" %>
+    <%@ include file="../common/bootstrap-resources.jsp" %>
+    <%@ include file="../common/travel-resources.jsp" %>
 </head>
 <%--<body id="page-top" class="index" data-spy="scroll" data-target=".navbar-fixed-top">--%>
 <body id="page-top" class="index">
